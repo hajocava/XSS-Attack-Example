@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import { Typography } from '../ui/Typography'
 import { Layout } from '../components/Layout'
 import { Comment, CommentProps } from '../components/Wall/Comment'
@@ -8,6 +9,7 @@ type Story = Pick<CommentProps, 'name' | 'imageUrl' | 'text'> & { id: string }
 
 export default function WallPage() {
   const [stories, setStories] = useState<Story[]>([])
+
   const addStory = (text: string) => {
     const message = text.trim()
 
@@ -26,11 +28,11 @@ export default function WallPage() {
   }
 
   return (
-    <Layout title={"Wall"}>
+    <Layout title='wall'>
       <div className="text-center pb-6">
-        <Typography variant="h2">Wall</Typography>
+        <Typography variant="h2">wall</Typography>
         <div className="max-w-5xl mx-auto mb-6 mt-4">
-          <Editor onSubmit={addStory} sanitize={false} />
+          <Editor onSubmit={addStory} />
         </div>
       </div>
       <section className="">
